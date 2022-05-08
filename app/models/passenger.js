@@ -5,6 +5,7 @@ module.exports = (sequelize, Sequelize) => {
         id: {
             type: Sequelize.STRING,
             primaryKey: true,
+            autoIncrement: true
         },
         passport_number: {
             type: Sequelize.STRING
