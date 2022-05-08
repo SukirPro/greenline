@@ -5,13 +5,29 @@ const log = log4js.getLogger("aircraft.service.js");
 
 
 exports.import = (data) => new Promise((resolve, reject) => {
-    db.aircraft.bulkCreate(data)
-        .then(doc => {
-            resolve({
-                data: doc
-            })
+    const transaction = await db.sequelize.transaction();
+
+    db.aircraft.destroy({ truncate: { cascade: false } })
+    .then(doc1 => {
+        transaction.commit();
+        db.aircraft.bulkCreate(data, {
         })
-        .catch((err) => { log.error(err); reject(err); });
+            .then(doc => {
+                resolve({
+                    data: doc
+                })
+            })
+            .catch((err) => { log.error(err); reject(err); });
+    })
+    .catch((err) => { log.error(err); reject(err); });
+
+    // db.aircraft.bulkCreate(data)
+    //     .then(doc => {
+    //         resolve({
+    //             data: doc
+    //         })
+    //     })
+    //     .catch((err) => { log.error(err); reject(err); });
 });
 
 

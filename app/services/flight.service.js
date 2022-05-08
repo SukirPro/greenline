@@ -7,18 +7,9 @@ const log = log4js.getLogger("flight.service.js");
 exports.import = (data) => new Promise(async (resolve, reject) => {
     const transaction = await db.sequelize.transaction();
 
-    await db.flight.destroy({where: {}})
-    console.log('====================');
-    // await db.flight.destroy({
-    //     where: {},
-    //     transaction: transaction
-    // }).then(doc => {
-    //     transaction.commit();
-       
-    // })
-    // .catch((err) => { log.error(err);  });;
+    await db.flight.destroy({ where: {} })
 
-    db.flight.destroy({ truncate :{cascade: false}  })
+    db.flight.destroy({ truncate: { cascade: false } })
         .then(doc1 => {
             transaction.commit();
             db.flight.bulkCreate(data, {
@@ -32,14 +23,7 @@ exports.import = (data) => new Promise(async (resolve, reject) => {
         })
         .catch((err) => { log.error(err); reject(err); });
 
-    //  db.flight.bulkCreate(data)
-    //     .then(doc => {
-    //         // transaction.commit();
-    //         resolve({
-    //             data: doc
-    //         })
-    //     })
-    //     .catch((err) => { log.error(err); reject(err); });
+ 
 });
 
 

@@ -2,9 +2,12 @@ const imagePath = "passengers"
 
 module.exports = (sequelize, Sequelize) => {
     const Passenger = sequelize.define('passengers', {
-        passport_number: {
+        id: {
             type: Sequelize.STRING,
             primaryKey: true,
+        },
+        passport_number: {
+            type: Sequelize.STRING
         },
         flight_number: {
             type: Sequelize.STRING,

@@ -10,10 +10,6 @@ module.exports = (sequelize, Sequelize) => {
         aircraft_number: {
             type: Sequelize.STRING,
         },
-        aircraft_number: {
-            type: Sequelize.STRING,
-            primaryKey: true,
-        },
         passenger_capacity: {
             type: Sequelize.STRING,
         },
