@@ -3,7 +3,7 @@ const imagePath = "passengers"
 module.exports = (sequelize, Sequelize) => {
     const Passenger = sequelize.define('passengers', {
         id: {
-            type: Sequelize.STRING,
+            type: Sequelize.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
