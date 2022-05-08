@@ -3,8 +3,7 @@ const Aircraft = db.aircraft;
 const log4js = require('../../config/log4js')
 const log = log4js.getLogger("aircraft.service.js");
 
-
-exports.import = (data) => new Promise((resolve, reject) => {
+exports.import = (data) => new Promise(async (resolve, reject) => {
     const transaction = await db.sequelize.transaction();
 
     db.aircraft.destroy({ truncate: { cascade: false } })
