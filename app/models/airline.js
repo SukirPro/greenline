@@ -2,6 +2,11 @@ const imagePath = "airlines"
 
 module.exports = (sequelize, Sequelize) => {
     const Airline = sequelize.define('airlines', {
+        id: {
+            type: Sequelize.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        },
         two_letter_code: {
             type: Sequelize.STRING,
             primaryKey: true,
