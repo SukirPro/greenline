@@ -8,8 +8,7 @@ module.exports = (sequelize, Sequelize) => {
             autoIncrement: true
         },
         two_letter_code: {
-            type: Sequelize.STRING,
-            primaryKey: true,
+            type: Sequelize.STRING
         },
         company_name: {
             type: Sequelize.STRING,
