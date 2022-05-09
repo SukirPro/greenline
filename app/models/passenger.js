@@ -34,7 +34,6 @@ module.exports = (sequelize, Sequelize) => {
         },
         revenue: {
             type: Sequelize.STRING,
-            // allowNull: false
         },
         seat_number: {
             type: Sequelize.STRING
